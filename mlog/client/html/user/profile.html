@@ -1,9 +1,25 @@
 <template name="userProfile"> 
     <h1>Welcome to your profile</h1>
-    <button class="btn btn-primary">Add a video</button>
+    <button class="btn btn-primary new-vid">Add a video</button>
     {{> insertVideoForm}}
 </template>
 
 <template name="insertVideoForm">
-{{> quickForm collection="Videos" type="insert" id="insert-video-form"}}
+{{> modal}}
+</template>
+
+<template name="modal">
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">
+        Add a new video
+      </div>
+      <div class="content">
+       {{> quickForm collection="Videos" type="insert" id="insert-video-form"}}
+      </div>
+      <div class="actions">
+        <div class="ui button">Cancel</div>
+        <div class="ui button">OK</div>
+      </div>
+    </div>
 </template>

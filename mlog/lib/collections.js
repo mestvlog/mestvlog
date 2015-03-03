@@ -5,7 +5,7 @@ Videos.attachSchema(new SimpleSchema({
     type: String,
     label: "Add a caption"
   },
-  owner: {
+ /* owner: {
     type: String,
     autoform: {
       omit: true
@@ -15,7 +15,7 @@ Videos.attachSchema(new SimpleSchema({
         return this.userId;
       }
     }
-  },
+  },*/
   createdAt: {
     type: Date,
     autoform: {
