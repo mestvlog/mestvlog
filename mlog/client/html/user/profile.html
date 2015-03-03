@@ -1,0 +1,9 @@
+<template name="userProfile"> 
+    <h1>Welcome to your profile</h1>
+    <button class="btn btn-primary">Add a video</button>
+    {{> insertVideoForm}}
+</template>
+
+<template name="insertVideoForm">
+{{> quickForm collection="Videos" type="insert" id="insert-video-form"}}
+</template>

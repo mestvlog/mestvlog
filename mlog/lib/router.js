@@ -3,3 +3,9 @@ Router.route("/", function() {
 },
 {   name: "home"
 })
+
+Router.route("user/profile", function() {
+    this.render("userProfile");
+ },
+ {  name: "userProfile"
+})
