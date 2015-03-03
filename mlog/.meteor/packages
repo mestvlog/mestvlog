@@ -8,3 +8,4 @@ meteor-platform
 autopublish
 insecure
 aldeed:autoform
+aldeed:collection2
