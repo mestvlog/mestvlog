@@ -2,7 +2,7 @@
 a.button-close {
     text-decoration: none;
 }
-#sign-in-with-email .form-control{
+#loginModal input{
     margin: 0 auto;
     width: 300px;
 }
@@ -44,6 +44,14 @@ button.button-facebook, button.button-facebook:hover {
 button.btn-email {
     width: 200px;
     margin: 20px auto;
+}
+
+button.btn-google, button.btn-google:hover {
+    width: 200px;
+    margin: 20px auto;
+    background-color: #d34836;
+    border: 0;
+    color: #fff;
 }
 
 #overlay {

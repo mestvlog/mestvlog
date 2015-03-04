@@ -23,3 +23,8 @@ http
 email
 meteorhacks:ssr
 accounts-base
+audit-argument-checks
+check
+jquery
+themeteorchef:jquery-validation
+useraccounts:semantic-ui

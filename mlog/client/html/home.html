@@ -1,6 +1,10 @@
 <template name="home">
     <h1>This is home</h1>
-    <button class="btn btn-default" data-action="signin-btn">signin</button>
+    <!-- <button class="btn btn-default" data-action="signin-btn">signin</button> -->
+      {{#if currentUser}}<a id="signout-btn" href="#">Signout</a>
+                {{else}}
+                <a href="#" data-action="signin-btn">Signin</a>
+                {{/if}}
     {{#each video}}
     <div class="panel panel-primary">
         <a href="{{pathFor "videoDetails"}}">
@@ -42,11 +46,11 @@
 <template name="overlayTemplate">
   <div id="overlay">
     <a href="#" class="button-close" data-action="overlay-close">×</a>
-    {{> loginTemplate}}
+    {{> loginButtonsTemplate}}
   </div>
 </template>
 
-<template name="loginTemplate">
+<template name="loginButtonsTemplate">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3 overlay-wrapper">
@@ -68,7 +72,11 @@
               <i class="fa fa-facebook"></i> Sign in with Facebook
             </span>
           </button>
-          <button class="btn btn-block btn-social-login btn-success btn-email" data-action="email-auth">
+          <button class="btn btn-block btn-social button-google btn-google" data-action="google-auth">
+            <i class="fa fa-google-plus"></i> Sign in Google
+          </button>
+          <button class="btn btn-block btn-social-login btn-success btn-email" 
+          data-action="email-auth">
             <i class="fa fa-envelope"></i> Sign in with Email
           </button>
           <div class="signinPrivacyMessages">
@@ -83,32 +91,18 @@
 </template>
 
 <template name="signInTemplate">
-  <form id="sign-in-with-email">
     <div class="modal fade" id="loginModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Signin</h4>
-                </div>
                 <div class="modal-body">
-                  <div class="form-group">
-                    <label for="emailAddress">Email Address</label>
-                    <input type="email" name="emailAddress" class="form-control" placeholder="What's your email, friend?">
-                  </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" class="form-control" placeholder="How about a password, pal?">
-                </div>
+                 {{> atForm}}
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success btn-sign-in">Sign In</button>
-                 <button type="submit" class="btn btn-primary btn-create-account">Create Account</button>
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
       </div>
   </div> 
-  </form>
 </template>
 
 

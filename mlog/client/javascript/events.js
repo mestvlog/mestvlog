@@ -13,7 +13,14 @@ Template.home.events({
 
     "click [data-action='signin-btn']": function() {
         $("#overlay").show();
-    }
+    },
+
+    "click #signout-btn": function(event){
+      Meteor.logout(function() {
+      // Redirect to login
+      Router.go('home');
+    });
+  }
 });
 
 AutoForm.addHooks(null, {
@@ -28,8 +35,29 @@ Template.overlayTemplate.events({
     }
 });
 
-Template.loginTemplate.events({
-    "click [data-action='email-auth']": function() {
+Template.loginButtonsTemplate.events({
+  'click .button-facebook': function() {
+    return Meteor.loginWithFacebook({
+      requestPermissions: ['email']
+    }, function(error) {
+      if (error) {
+        return console.log(error.reason);
+      }
+    });
+  },
+  'click .button-twitter': function() {
+    return Meteor.loginWithTwitter(function(error) {
+      if (error) {
+        return console.log(error.reason);
+      }
+    });
+  },
+
+  "click [data-action='email-auth']": function() {
         $("#loginModal").modal("show");
     }
 });
+
+
+
+
