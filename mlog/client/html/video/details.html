@@ -1,0 +1,14 @@
+<template name="videoDetails">
+   <h1>{{job.caption}} {{job._id}}</h1>
+       <h3>Comments</h3>
+            {{#each showComments job._id}}
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title"></h3>
+                </div>
+                <div class="panel-body">
+                {{comment}}
+                </div>
+              </div>
+          {{/each}}
+</template>

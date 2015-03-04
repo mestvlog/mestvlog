@@ -1,0 +1,86 @@
+
+a.button-close {
+    text-decoration: none;
+}
+#sign-in-with-email .form-control{
+    margin: 0 auto;
+    width: 300px;
+}
+
+.overlay-wrapper {
+    text-align: center;
+}
+.overlay-header {
+    margin-top: 200px;
+}
+.overlay-social-actions {
+    text-align: center;
+}
+
+.signinPrivacyMessages {
+    margin-top: 40px;
+    max-width: 500px;
+    font-size: 12px;
+    color: #b3b3b1;
+    text-align: justify;
+}
+
+button.button-twitter, button.button-twitter:hover {
+    width: 200px;
+    margin: 20px auto;
+    background-color: #55acee;
+    border: 0;
+    color: #fff;
+}
+
+button.button-facebook, button.button-facebook:hover {
+    width: 200px;
+    margin: 20px auto;
+    background-color: #3b5998;
+    border: 0;
+    color: #fff;
+}
+
+button.btn-email {
+    width: 200px;
+    margin: 20px auto;
+}
+
+#overlay {
+display: none;
+position: fixed;
+overflow: auto;
+text-align: center;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+/*display: block;*/
+z-index: 900;
+background-color: rgba(255,255,255,0.97);
+width: 100%;
+padding: 0;
+margin: 0;
+border: 0;
+}
+
+.button-close {
+font-size: 32px;
+padding: 10px 20px;
+position: fixed;
+top: 0;
+right: 0;
+font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+letter-spacing: -0.02em;
+font-weight: 300;
+font-style: normal;
+}
+
+/*#overlay {
+background-image: url(../images/overlay.png);
+width: 100%;
+height: 100%;
+margin: 0px;
+position: fixed;
+z-index: 20;
+}*/

@@ -10,6 +10,16 @@ insecure
 aldeed:autoform
 aldeed:collection2
 iron:router
-twbs:bootstrap
 jameslefrere:autoform-semantic-ui
 semantic:ui-css
+fortawesome:fontawesome
+twbs:bootstrap
+kevohagan:sweetalert
+accounts-password
+accounts-facebook
+accounts-twitter
+service-configuration
+http
+email
+meteorhacks:ssr
+accounts-base
