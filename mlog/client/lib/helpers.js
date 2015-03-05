@@ -15,7 +15,7 @@ Template.userProfile.helpers({
        return Meteor.users.findOne(userId).profile.name;
     }
 });*/
-
+/*
 Template.navStuff.helpers({
 username: function() {
      var userId = Meteor.userId();
@@ -28,7 +28,7 @@ username: function() {
         return user.profile.name;
     }
 }
-})
+})*/
 
 /*Template.registerHelper("timeStamp", function(id) {
     var videoTime = Videos.findOne(id).getTime();

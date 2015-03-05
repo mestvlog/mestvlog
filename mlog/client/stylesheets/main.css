@@ -139,11 +139,23 @@ p{
 img{
     border-radius: 10px;
 }
+
+
 .tags {
-    background-color: inherit;
-    width: 60px;
-    height: 60px;
-    margin: 5px 5px 5px;
-    padding: 6px;
+    background-color: #E8E8E8;
+    width: 70px;
+    height: 70px;
+    margin: 5px 5px 5px 5px;
+    padding: 6px 6px 6px 6px;
     border-radius: 3px;
+    border: 1px solid #e6e6e6;
+}
+
+.tags:hover
+{
+z-index:100;
+position:relative;
+    
+-moz-transform:rotate(4deg) scale(1.2);
+-webkit-transform:rotate(4deg) scale(1.2);
 }
