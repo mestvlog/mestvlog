@@ -4,7 +4,7 @@ Template.userProfile.events({
 }
 });
 
-Template.home.events({
+/*Template.home.events({
     "click .comment-btn": function(e,t) {
         var videoId = e.currentTarget.id;
         Session.set("target", videoId);
@@ -21,7 +21,15 @@ Template.home.events({
       Router.go('home');
     });
   }
-});
+});*/
+
+Template.videoDetails.events({
+  "click [data-action='comment-btn']": function(e,t) {
+    var videoId = e.currentTarget.id;
+        Session.set("target", videoId);
+        $("#commentModal").modal("show");
+  }
+})
 
 AutoForm.addHooks(null, {
     onError: function (operation, error, template) {
@@ -53,11 +61,36 @@ Template.loginButtonsTemplate.events({
     });
   },
 
+  "click [data-action='google-auth']": function() {
+    return Meteor.loginWithGoogle(function(error) {
+      if (error) {
+        return console.log(error.reason);
+      }
+    });
+  },
+
   "click [data-action='email-auth']": function() {
         $("#loginModal").modal("show");
     }
 });
 
+Accounts.onLogin(function() {
+  Router.go("userProfile");
+});
 
 
+Template.navStuff.events({
+  "click [data-action='signout-btn']": function() {
+    Meteor.logout(function() {
+      // Redirect to login
+      Router.go('home');
+    });
+  },
+   "click [data-action='signin-btn']": function() {
+        $("#overlay").show();
+    },
 
+  "click [data-action='new-vid']": function() {
+    $("#formModal").modal("show");
+  }
+})

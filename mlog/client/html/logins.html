@@ -1,0 +1,54 @@
+<template name="loginButtonsTemplate">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 overlay-wrapper">
+        <div class="overlay-header">
+          <h3>Sign In to Mlog</h3>
+          <p>Hey there team maties! Come on aboard!</p>
+        </div>
+        <div class="overlay-social-actions">
+          <!--  <a class="btn btn-block btn-social btn-twitter">
+              <i class="fa fa-twitter"></i> Sign in with Twitter
+          </a> -->
+          <button class="btn btn-block btn-social button-twitter" data-action="twitter-auth">
+            <span>
+              <i class="fa fa-twitter"></i> Sign in with Twitter
+            </span>
+          </button>
+          <button class="btn btn-block btn-social button-facebook" data-action="facebook-auth">
+            <span>
+              <i class="fa fa-facebook"></i> Sign in with Facebook
+            </span>
+          </button>
+          <button class="btn btn-block btn-social button-google btn-google" data-action="google-auth">
+            <i class="fa fa-google-plus"></i> Sign in Google
+          </button>
+          <button class="btn btn-block btn-social-login btn-success btn-email" 
+          data-action="email-auth">
+            <i class="fa fa-envelope"></i> Sign in with Email
+          </button>
+          <div class="signinPrivacyMessages">
+            When using email, you can only signin or signup using meltwater.org domain. We will never post to Twitter or Facebook without your permission.
+          </div>
+
+        </div>
+      </div>
+      {{> signInTemplate}}
+    </div>
+  </div>
+</template>
+
+<template name="signInTemplate">
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                 {{> atForm}}
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+      </div>
+  </div> 
+</template>

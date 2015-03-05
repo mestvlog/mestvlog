@@ -92,3 +92,51 @@ margin: 0px;
 position: fixed;
 z-index: 20;
 }*/
+
+body {
+    background-color: #f0f0f0;
+}
+.navbar{
+     background-color: #e6e6e6; 
+}
+
+.navbar-btn{
+    border-radius: 50px;
+    padding: 10px 20px 10px 20px;
+    margin: 3px 3px 3px 3px;
+}
+a{
+    color: #8A8A8A;
+}
+p{
+    color: #2E2E2E;
+}
+.nav-title{
+    font-weight: bolder;
+    font-family: cursive;
+    font-size: 30px;
+    color: #737373;
+    padding: 20px 10px 10px 25px;
+}
+
+.videoheader{
+    text-align: center;
+}
+.row
+{
+    padding-top: 5px;
+}
+.videotags{
+    color: #e6e6e6;
+}
+img{
+    border-radius: 10px;
+}
+.tags {
+    background-color: inherit;
+    width: 60px;
+    height: 60px;
+    margin: 5px 5px 5px;
+    padding: 6px;
+    border-radius: 3px;
+}

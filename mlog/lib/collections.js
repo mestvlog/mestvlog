@@ -45,7 +45,7 @@ Comments.attachSchema(new SimpleSchema({
       omit: true
     }
   },
-/*   owner: {
+   owner: {
     type: String,
     autoform: {
       omit: true
@@ -55,7 +55,7 @@ Comments.attachSchema(new SimpleSchema({
         return this.userId;
       }
     }
-  },*/
+  },
    createdAt: {
     type: Date,
     autoform: {

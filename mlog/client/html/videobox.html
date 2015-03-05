@@ -1,0 +1,31 @@
+<template name="videobox">
+    <div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-12">
+
+          <p class="videoheader"><center><strong>RECENT VIDEOS</strong></center></p>
+          {{#each video}}
+          <p class="videoplaceholder">
+              <a href="{{pathFor "videoDetails"}}">
+                <img src="cool-tags-graffiti-27.jpg" width="300" height="250">
+              </a>
+          </p>
+
+          <p class="videotitle"><strong><a href="{{pathFor "videoDetails"}}">{{caption}}</a></strong></p>
+         <!--  <p class="push-right"><span class="label label-default">Fun Stuff</span><span class="label label-default">Tech</span> <span class="label label-default"></span></p> -->
+          <ul class="list-inline">
+            <li><a href="#">2 Days Ago</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-comment"></i>{{commentsCount _id}}</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-share"></i> 14 Shares</a></li>
+          </ul>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{> sidebar}}
+  </div>
+    </div>
+</template>

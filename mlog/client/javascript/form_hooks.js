@@ -21,3 +21,12 @@ AutoForm.hooks({
     }
   }
 });
+
+AutoForm.hooks({
+  insertVideoForm: {
+     onSuccess: function(operation, result, template) {
+       $("#formModal").modal("hide");
+       swal("Thanks! your video has been posted");
+    }
+  }
+});

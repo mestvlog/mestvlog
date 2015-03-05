@@ -1,17 +1,17 @@
-<template name="videoModal">
-    <div class="modal fade" id="formModal">
+<template name="commentForm">
+        <div class="modal fade" id="commentModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;</button>
-                    <h4 class="modal-title">Add new video</h4>
+                    <h4 class="modal-title">Add new comment</h4>
                 </div>
                 <div class="modal-body">
-                    {{> quickForm collection="Videos" type="insert" id="insertVideoForm"}}
+                    {{> quickForm collection="Comments" type="insert" id="insertCommentForm"}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button  class="button button-close" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

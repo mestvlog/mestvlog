@@ -1,3 +1,7 @@
+Router.configure({  
+  layoutTemplate: 'masterLayout'
+});
+
 Router.route("/", function() {
     this.render("home");
 },
