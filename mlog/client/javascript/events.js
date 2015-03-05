@@ -25,9 +25,14 @@ Template.userProfile.events({
 
 Template.videoDetails.events({
   "click [data-action='comment-btn']": function(e,t) {
+    if(!Meteor.user()) {
+      swal("Sorry! you must signin to comment");
+    }
+    else {
     var videoId = e.currentTarget.id;
         Session.set("target", videoId);
         $("#commentModal").modal("show");
+    }
   }
 })
 
@@ -42,6 +47,13 @@ Template.overlayTemplate.events({
         $("#overlay").hide();
     }
 });
+
+Template.signInTemplate.events({
+  "submit form#at-pwd-form": function() {
+    $("#loginModal").modal("hide");
+    $("#overlay").hide();
+  }
+})
 
 Template.loginButtonsTemplate.events({
   'click .button-facebook': function() {
@@ -75,6 +87,7 @@ Template.loginButtonsTemplate.events({
 });
 
 Accounts.onLogin(function() {
+  $("#overlay").hide();
   Router.go("userProfile");
 });
 
@@ -94,3 +107,5 @@ Template.navStuff.events({
     $("#formModal").modal("show");
   }
 })
+
+// Videos.findOne("WszTcgqB2x3aLNGRm").createdAt

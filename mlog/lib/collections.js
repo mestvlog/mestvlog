@@ -5,17 +5,17 @@ Videos.attachSchema(new SimpleSchema({
     type: String,
     label: "Add a caption"
   },
- /* owner: {
+  owner: {
     type: String,
     autoform: {
       omit: true
     },
     autoValue: function() {
       if(this.isInsert) {
-        return this.userId;
+        return Meteor.userId();
       }
     }
-  },*/
+  },
   createdAt: {
     type: Date,
     autoform: {
@@ -52,7 +52,7 @@ Comments.attachSchema(new SimpleSchema({
     },
       autoValue: function(){
       if (this.isInsert){
-        return this.userId;
+        return Meteor.userId();
       }
     }
   },

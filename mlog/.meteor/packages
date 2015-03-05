@@ -30,3 +30,4 @@ themeteorchef:jquery-validation
 useraccounts:semantic-ui
 accounts-google
 gwendall:auth-client-callbacks
+cfs:standard-packages

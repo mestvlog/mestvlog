@@ -1,4 +1,11 @@
+/*<div class="at-sep ui horizontal divider">
+    OR
+  </div>*/
 
+
+.at-oauth, .at-sep {
+    display: none;
+}
 a.button-close {
     text-decoration: none;
 }
@@ -72,7 +79,7 @@ margin: 0;
 border: 0;
 }
 
-.button-close {
+#overlay .button-close {
 font-size: 32px;
 padding: 10px 20px;
 position: fixed;
