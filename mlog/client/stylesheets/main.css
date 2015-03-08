@@ -10,7 +10,9 @@
     text-align: right;
     margin-bottom: 10px;
 }
-
+#videoThumbnail {
+    margin-top: 10px;
+}
 .at-oauth, .at-sep {
     display: none;
 }

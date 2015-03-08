@@ -24,10 +24,9 @@
     {{#autoForm collection="Videos" id="insertVideoForm"}}
         <fieldset>
             <div id="video-div">
-                <!-- {{#if isUploading}} -->
-                {{> progressBar}}
-                <!-- {{/if }} -->
+               {{> progressBar}}
                {{> afFieldInput name='videoUrl'}} 
+               {{> myVideo}}
             </div>
             {{> afQuickField name='caption'}}
         </fieldset>
@@ -45,6 +44,11 @@
 </template>
 
 <template name="myVideo">
-  <!-- <img src={{url}}/> -->
-    <video src="{{url}}" width="50" height="50" controls></video>
+    <div id="videoThumbnail">
+          <video src="{{url}}" width="100"></video>
+    </div>
+       <!--  {{#if url != "undefined"}}
+        <a href="#"><i class="fa fa-times"></i>Remove</a>
+        
+        {{/if}} -->
 </template>

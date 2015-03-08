@@ -23,98 +23,9 @@ Template.videoOverlayTemplate.events({
     $(".comments-div").slideToggle();
     $("#show-comments").toggleClass("show");
     var txt =  $("#show-comments").hasClass('show') ? 'Hide Comments' : 'Show Comments'
-    $("#show-comments").html("<p>" + txt + "</p>");
-
-  
-   
+    $("#show-comments").html("<p>" + txt + "</p>");  
 }
 })
-
-
-var uploader = new ReactiveVar();
-
-Template.videoModal.events({
-    "change #video": function (event, template) {
-        var upload = new Slingshot.Upload("mestvids"),
-              file = template.find("#video").files[0];
-        if (file) {
-            upload.send(file, function (error, downloadUrl) {
-                uploader.set();
-
-                if (error) {
-                    alert(error.message);
-                }
-                else {
-                    //TODO Call your method here
-                    Session.set("videoUrl", downloadUrl);
-                    Meteor.users.update(Meteor.userId(), {$push: {"profile.files": downloadUrl}});
-                }
-            });
-        }
-
-        uploader.set(upload);
-    }
-});
-
-Template.progressBar.helpers({
-
-    isUploading: function () {
-        return Boolean(uploader.get());
-    },
-
-    progress: function () {
-        var upload = uploader.get();
-        if (upload)
-            return Math.round(upload.progress() * 100);
-    }
-});
-
-  AutoForm.hooks({
-  insertVideoForm: {
-    onSubmit: function (insertDoc, updateDoc, currentDoc) {
-        // Meteor.call("updatePost", currentDoc._id, updateDoc)
-      /*Videos.insert(insertDoc,
-       function(err, id) {
-        if (err) {
-          this.done();
-        }
-  
-       }
-       );*/
-    Videos.insert({
-      caption: insertDoc.caption,
-      videoUrl: Session.get("videoUrl")
-    }, function(err, id) {
-       if (err) {
-          this.done();
-        }
-    })
-       return false;  
-    },
-
-     onSuccess: function(operation, result, template) {
-       $("#formModal").modal("hide");
-       swal("Thanks! your video has been posted");
-    }
-  }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Template.userProfile.events({
@@ -196,5 +107,3 @@ Template.navStuff.events({
     $("#formModal").modal("show");
   }
 })
-
-// Videos.findOne("WszTcgqB2x3aLNGRm").createdAt

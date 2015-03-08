@@ -20,3 +20,26 @@ AutoForm.hooks({
   }
 });
 
+
+
+  AutoForm.hooks({
+  insertVideoForm: {
+    onSubmit: function (insertDoc, updateDoc, currentDoc) {
+    Videos.insert({
+      caption: insertDoc.caption,
+      videoUrl: Session.get("videoUrl")
+    }, function(err, id) {
+       if (err) {
+          this.done();
+        }
+    })
+       return false;  
+    },
+
+     onSuccess: function(operation, result, template) {
+       $("#formModal").modal("hide");
+       swal("Thanks! your video has been posted");
+    }
+  }
+});
+
