@@ -16,14 +16,16 @@ Template.videoOverlayTemplate.events({
     $("#comments-box").show();
   },
   "click [ data-action='show-comments']": function(e,t) {
-     var videoId = e.currentTarget.id;
-     var $element = $(this);
+    var videoId = e.currentTarget.id;
     Session.set("target", videoId);
     $("#comments-box").show();
     $(".comments-div").slideToggle();
-    var txt = $(".comments-div").is(':visible') ? 'Hide Comments' : 'Show Comments';
-    $element.text(txt);
+    $("#show-comments").toggleClass("show");
+    var txt =  $("#show-comments").hasClass('show') ? 'Hide Comments' : 'Show Comments'
+    $("#show-comments").html("<p>" + txt + "</p>");
 
+  
+   
 }
 })
 
