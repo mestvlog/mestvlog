@@ -9,6 +9,7 @@ Template.videobox.events({
 Template.videoOverlayTemplate.events({
   "click [data-action='overlay-close']": function() {
         $("#videoOverlay").hide();
+        $("#videoPlayer").attr('src','');
     },
   "click [data-action='comment-btn']": function(e,t) {
     var videoId = e.currentTarget.id;
