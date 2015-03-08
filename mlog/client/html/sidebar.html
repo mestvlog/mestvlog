@@ -1,26 +1,29 @@
 <template name="sidebar">
     <div class="col-md-3">
      <p><center><strong>FEATURED TAGS</strong></center></p>
+     <p id="tagInfo"></p>
      <div class="row">
          <div class="col-md-1"></div> 
-            <div class="tags col-md-3"><img src="fun.png" width="60" height="60"></div>
-            <div class="tags col-md-3"><img src="pitches.png" width="60" height="60"></div>
-            <div class="tags col-md-3"><img src="travell.png" width="60" height="60"></div>
+            <div class="tags col-md-3">
+                <img src="fun.png" width="60" height="60" title="MEST Funny Moments" data-action="mestfun">
+            </div>
+            <div class="tags col-md-3"><img src="pitches.png" width="60" height="60" title="MEST Pitches" data-action="mestpitches"></div>
+            <div class="tags col-md-3"><img src="travell.png" width="60" height="60" title="MEST Travel" data-action="mesttravels"></div>
             <div class="col-md-2"></div>
       </div>
       
       <div class="row">
         <div class="col-md-1"></div> 
-            <div class="tags col-md-3"><img src="intros.png" width="60" height="60"></div>
-            <div class="tags col-md-3"><img src="goodbye.png" width="60" height="60"></div>
-            <div class="tags col-md-3"><img src="winners.png" width="60" height="60"></div>
+            <div class="tags col-md-3"><img src="mestl.png" width="60" height="60" title="MEST Love" data-action="mestlove"></div>
+            <div class="tags col-md-3"><img src="mestintros.png" width="60" height="60" title="MEST New Intros" data-action="mestintros"></div>
+            <div class="tags col-md-3"><img src="winners.png" width="60" height="60" title="MEST Winners" data-action="mestwinners"></div>
             <div class="col-md-2"></div>
         </div>
         <div class="row">
         <div class="col-md-1"></div> 
-            <div class="tags col-md-3"><img src="event.png" width="60" height="60"></div>
-            <div class="tags col-md-3"><img src="rabdom.png" width="60" height="60"></div>
-            <div class="tags col-md-3"><img src="mestlove.png" width="60" height="60"></div>
+            <div class="tags col-md-3"><img src="event.png" width="60" height="60" title="MEST Events" data-action="mestevents"></div>
+            <div class="tags col-md-3"><img src="random.png" width="60" height="60" title="Mest Random" data-action="mestrandom"></div>
+            <div class="tags col-md-3"><img src="mestgoodbyes.png" width="60" height="60" title="Mest Goodbyes" data-action="mestgoodbyes"></div>
             <div class="col-md-2"></div>
         </div>
     </div>

@@ -13,6 +13,17 @@ Videos.attachSchema(new SimpleSchema({
     }
   },
 
+  tags: {
+    type: [String],
+    autoform: {
+      type: "selectize",
+      afFieldInput: {
+        multiple: true,
+        firstOption: "(Select tags)"
+      }
+    }
+  },
+
   caption: {
     type: String,
     label: "Add a caption"

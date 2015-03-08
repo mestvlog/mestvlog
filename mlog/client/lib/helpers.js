@@ -21,6 +21,20 @@ Template.videoOverlayTemplate.helpers({
     }
 })
 
+Template.registerHelper("mestOptions", function() {
+    return [
+        {label: 'Mest Fun', value: 'mestfun'},
+        {label: "Mest New Intros", value: 'mestintros'},
+        {label: "Mest Travels", value: 'mesttravels'},
+        {label: "Mest Love", value: 'mestlove'},
+        {label: "Mest Random", value: 'mestrandom'},
+        {label: "Mest Pitches", value: 'mestpitches'},
+        {label: "Mest Winners", value: 'mestwinners'},
+        {label: "Mest Goodbyes", value: 'mestgoodbyes'},
+        {label: "Mest Events", value: 'mestevents'}
+      
+    ]
+})
 Template.commentsTemplate.helpers({
     username: function(id) {
         return Meteor.users.findOne(id).profile.name;
@@ -34,9 +48,9 @@ Template.registerHelper("username", function(id) {
 })
 
 
-Template.registerHelper("videos", function(){
+/*Template.registerHelper("videos", function(){
     return Videos.find({}, {sort: {createdAt: -1}});
-});
+});*/
 
 Template.registerHelper("showComments", function(id){
     return Comments.find({videoId: id});

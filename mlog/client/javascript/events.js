@@ -6,6 +6,40 @@ Template.videobox.events({
   }
 })
 
+Template.sidebar.events({
+  "mouseenter .tags": function(e,t) {
+    var info = e.currentTarget.children[0].title;
+    $("#tagInfo").html("<center>" + info + "</center>");
+  },
+  "click [data-action='mestfun']": function(event) {
+    window.document.location = "/mestfun";
+  },
+  "click [data-action='mestlove']": function(event) {
+    window.document.location = "/mestlove";
+  },
+  "click [data-action='mestgoodbyes']": function(event) {
+    window.document.location = "/mestgoodbyes";
+  },
+  "click [data-action='mestevents']": function(event) {
+    window.document.location = "/mestevents";
+  },
+  "click [data-action='mestpitches']": function(event) {
+    window.document.location = "/mestpitches";
+  },
+  "click [data-action='mestintros']": function(event) {
+    window.document.location = "/mestintros";
+  },
+  "click [data-action='mestwinners']": function(event) {
+    window.document.location = "/mestwinners";
+  },
+  "click [data-action='mestrandom']": function(event) {
+    window.document.location = "/mestrandom";
+  },
+   "click [data-action='mesttravels']": function(event) {
+    window.document.location = "/mesttravels";
+  },
+})
+
 Template.videoOverlayTemplate.events({
   "click [data-action='overlay-close']": function() {
         $("#videoOverlay").hide();

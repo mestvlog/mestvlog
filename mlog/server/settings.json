@@ -1,7 +1,7 @@
 {
   "awsBucket": "mestvids",
-  "awsAccessKeyId": "AKIAILU7TSMJIVG475NQ",
-  "awsSecretKey": "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",
+  "awsAccessKeyId": "AKIAJ3YZJ3YPDW2Y7D4Q",
+  "awsSecretKey": "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",
   "public": {
     "awsBucketUrl": "https://mestvids.s3.amazonaws.com",
     "environment": "staging"

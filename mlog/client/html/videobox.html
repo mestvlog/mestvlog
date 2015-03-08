@@ -2,7 +2,7 @@
   <div class="container">
   <div class="row">
     <div class="col-md-9">
-    <p class="videoheader"><center><strong>RECENT VIDEOS</strong></center></p>
+    <p class="videoheader"><center><strong>{{header}}</strong></center></p>
       <div class="row">
        {{#each videos}}
         <div class="col-md-6">
@@ -20,6 +20,7 @@
               {{commentsCount _id}}
             </li>
             <li><i class="glyphicon glyphicon-share"></i> 14 Shares</li>
+            <li><i class="fa fa-tags"></i> {{tags}}</li>
           </ul>
         </div>
         {{/each}}
