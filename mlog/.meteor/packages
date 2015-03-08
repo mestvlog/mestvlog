@@ -31,3 +31,8 @@ useraccounts:semantic-ui
 accounts-google
 gwendall:auth-client-callbacks
 cfs:standard-packages
+edgee:slingshot
+underscore
+tracker
+peerlibrary:aws-sdk
+reactive-var

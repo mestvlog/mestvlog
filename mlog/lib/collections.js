@@ -1,6 +1,18 @@
 Videos = new Mongo.Collection("videos");
 
 Videos.attachSchema(new SimpleSchema({
+  videoUrl: {
+    type: String,
+    label: "choose files",
+    autoform: {
+       afFieldInput: {
+        type: "file",
+        multiple: true,
+        id: "video"
+      }
+    }
+  },
+
   caption: {
     type: String,
     label: "Add a caption"
@@ -33,11 +45,7 @@ Comments = new Mongo.Collection("comments");
 
 Comments.attachSchema(new SimpleSchema({
   comment: {
-    type: String,
-    label: "Comment",
-    autoform: {
-      rows: 5
-    }
+    type: String
   },
   videoId: {
     type: String,

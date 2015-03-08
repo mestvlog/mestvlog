@@ -1,40 +1,126 @@
+Template.videobox.events({
+  "click [data-action='showVideo']": function(e,t) {
+    var videoId = e.currentTarget.id;
+    Session.set("videoId", videoId);
+    $("#videoOverlay").show();
+  }
+})
+
+Template.videoOverlayTemplate.events({
+  "click [data-action='overlay-close']": function() {
+        $("#videoOverlay").hide();
+    },
+  "click [data-action='comment-btn']": function(e,t) {
+    var videoId = e.currentTarget.id;
+    Session.set("target", videoId);
+    $("#comments-box").show();
+  },
+  "click [ data-action='show-comments']": function(e,t) {
+     var videoId = e.currentTarget.id;
+     var $element = $(this);
+    Session.set("target", videoId);
+    $("#comments-box").show();
+    $(".comments-div").slideToggle();
+    var txt = $(".comments-div").is(':visible') ? 'Hide Comments' : 'Show Comments';
+    $element.text(txt);
+
+}
+})
+
+
+var uploader = new ReactiveVar();
+
+Template.videoModal.events({
+    "change #video": function (event, template) {
+        var upload = new Slingshot.Upload("mestvids"),
+              file = template.find("#video").files[0];
+        if (file) {
+            upload.send(file, function (error, downloadUrl) {
+                uploader.set();
+
+                if (error) {
+                    alert(error.message);
+                }
+                else {
+                    //TODO Call your method here
+                    Session.set("videoUrl", downloadUrl);
+                    Meteor.users.update(Meteor.userId(), {$push: {"profile.files": downloadUrl}});
+                }
+            });
+        }
+
+        uploader.set(upload);
+    }
+});
+
+Template.progressBar.helpers({
+
+    isUploading: function () {
+        return Boolean(uploader.get());
+    },
+
+    progress: function () {
+        var upload = uploader.get();
+        if (upload)
+            return Math.round(upload.progress() * 100);
+    }
+});
+
+  AutoForm.hooks({
+  insertVideoForm: {
+    onSubmit: function (insertDoc, updateDoc, currentDoc) {
+        // Meteor.call("updatePost", currentDoc._id, updateDoc)
+      /*Videos.insert(insertDoc,
+       function(err, id) {
+        if (err) {
+          this.done();
+        }
+  
+       }
+       );*/
+    Videos.insert({
+      caption: insertDoc.caption,
+      videoUrl: Session.get("videoUrl")
+    }, function(err, id) {
+       if (err) {
+          this.done();
+        }
+    })
+       return false;  
+    },
+
+     onSuccess: function(operation, result, template) {
+       $("#formModal").modal("hide");
+       swal("Thanks! your video has been posted");
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Template.userProfile.events({
 "click .new-vid": function() {
     $("#formModal").modal("show");
 }
 });
 
-/*Template.home.events({
-    "click .comment-btn": function(e,t) {
-        var videoId = e.currentTarget.id;
-        Session.set("target", videoId);
-        $("#commentModal").modal("show");
-    },
 
-    "click [data-action='signin-btn']": function() {
-        $("#overlay").show();
-    },
-
-    "click #signout-btn": function(event){
-      Meteor.logout(function() {
-      // Redirect to login
-      Router.go('home');
-    });
-  }
-});*/
-
-Template.videoDetails.events({
-  "click [data-action='comment-btn']": function(e,t) {
-    if(!Meteor.user()) {
-      swal("Sorry! you must signin to comment");
-    }
-    else {
-    var videoId = e.currentTarget.id;
-        Session.set("target", videoId);
-        $("#commentModal").modal("show");
-    }
-  }
-})
 
 AutoForm.addHooks(null, {
     onError: function (operation, error, template) {

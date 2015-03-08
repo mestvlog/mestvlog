@@ -1,7 +1,6 @@
 AutoForm.hooks({
   insertCommentForm: {
     formToDoc: function(doc, ss, formId) {
-      console.log(doc);
       var _id = Router.current().params._id;
 
       if(typeof _id === 'undefined'){
@@ -11,7 +10,6 @@ AutoForm.hooks({
       else {
         doc.videoId = Router.current().params._id;
       }
-      console.log(doc);
       return doc;
     },
 
@@ -22,11 +20,3 @@ AutoForm.hooks({
   }
 });
 
-AutoForm.hooks({
-  insertVideoForm: {
-     onSuccess: function(operation, result, template) {
-       $("#formModal").modal("hide");
-       swal("Thanks! your video has been posted");
-    }
-  }
-});

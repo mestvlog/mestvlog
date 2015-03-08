@@ -1,4 +1,40 @@
-Template.registerHelper("video", function(){
+Template.registerHelper("isUploading", function() {
+    if(Session.get("uploading")) {
+        return true;
+    }
+})
+
+Template.videoOverlayTemplate.helpers({
+    userVideo: function() {
+    var video = Videos.findOne(Session.get("videoId"));
+    return video;
+    },
+    isComments: function(id) {
+        var check = Comments.find({videoId: id}).count();
+        if(check > 0) {
+            return true
+        }
+    },
+    videoComments: function(id) {
+        var comments = Comments.find({videoId: id});
+        return comments
+    }
+})
+
+Template.commentsTemplate.helpers({
+    username: function(id) {
+        return Meteor.users.findOne(id).profile.name;
+    }
+})
+
+Template.registerHelper("username", function(id) {
+    var videoOwnerId = Videos.findOne(id).owner;
+    var owner = Meteor.users.findOne(videoOwnerId).profile.name;
+    return owner;
+})
+
+
+Template.registerHelper("videos", function(){
     return Videos.find({}, {sort: {createdAt: -1}});
 });
 
@@ -7,6 +43,22 @@ Template.registerHelper("showComments", function(id){
 });
 Template.registerHelper("commentsCount", function(id){
     return Comments.find({videoId: id}).count();
+});
+
+/*Template.progressBar.helpers({
+  progress: function () {
+    return Math.round(this.uploader.progress() * 100);
+  }
+});*/
+
+
+
+Template.myVideo.helpers({
+  url: function () {
+    //if we are uploading an image, pass true to download the image into cache
+    //this will preload the image before using the remote image url.
+    return this.uploader.url(true);
+  }
 });
 /*
 Template.userProfile.helpers({
@@ -47,20 +99,7 @@ Template.registerHelper("timeStamp", function(id){
     var timeDiff = timeNow - videoTime
     var minutes = parseInt((timeDiff/(1000*60))%60);
     var hours = parseInt((timeDiff/(1000*60*60))%24);
-    /*if(hours > 1) {
-    return hours + " " + "hours ago";
-    }
-    else if(minutes < 60) {
-        return minutes + " " + "minutes ago";
-    }*/
-   /* switch(hours){
-    case 12:
-    return hours + " " + "hours ago";
-    break;
-    case 14:
-    return minutes + " " + "minutes ago";
-    break;
-    }*/
+ 
     switch(hours) {
     case 0:
         return minutes + " " + "minutes ago";

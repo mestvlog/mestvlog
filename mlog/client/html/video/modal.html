@@ -8,7 +8,8 @@
                     <h4 class="modal-title">Add new video</h4>
                 </div>
                 <div class="modal-body">
-                    {{> quickForm collection="Videos" type="insert" id="insertVideoForm"}}
+                   
+                    {{> insertVideoForm}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -16,4 +17,34 @@
             </div>
         </div>
     </div>
+</template>
+
+<template name="insertVideoForm">
+ <!-- {{> quickForm collection="Videos" id="insertVideoForm" type="insert"}} -->
+    {{#autoForm collection="Videos" id="insertVideoForm"}}
+        <fieldset>
+            <div id="video-div">
+                <!-- {{#if isUploading}} -->
+                {{> progressBar}}
+                <!-- {{/if }} -->
+               {{> afFieldInput name='videoUrl'}} 
+            </div>
+            {{> afQuickField name='caption'}}
+        </fieldset>
+            <div id="submit-div"><button type="submit" class="btn btn-primary">Save</button></div>
+            
+    {{/autoForm}}
+</template>
+
+<template name="progressBar">
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+      <span class="sr-only">{{progress}}% Complete</span>
+    </div>
+  </div>
+</template>
+
+<template name="myVideo">
+  <!-- <img src={{url}}/> -->
+    <video src="{{url}}" width="50" height="50" controls></video>
 </template>
