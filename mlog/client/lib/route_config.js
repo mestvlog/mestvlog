@@ -3,5 +3,5 @@ AccountsTemplates.configureRoute('signIn', {
     path: 'signin', //this route will be forwarded to iron router so you don't have to define the same route in iron router
     template: 'signInTemplate', //this is the template that contains the {{> atForm} handlebar
     // layoutTemplate: 'masterLayout', //optional if you have a master layout
-    redirect: 'userProfile' // this is the URL the user will be redirected upon sign in but you have to define this route in iron router
+    redirect: 'videos' // this is the URL the user will be redirected upon sign in but you have to define this route in iron router
 });

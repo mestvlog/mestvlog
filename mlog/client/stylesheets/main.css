@@ -1,3 +1,10 @@
+
+#wrapper {
+  min-height: 100%;
+  /* Negative indent footer by it's height */
+  /*margin: 0 auto -60px;*/
+}
+
 #video-thumbnail {
     margin-top: 0;
     margin-bottom: 0;
@@ -5,7 +12,14 @@
 #video-div {
     margin-bottom: 20px;
 }
-#submit-div {
+
+.pagination-div {
+    margin-top: 15px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.submit-div {
     margin-top: 5px;
     text-align: right;
     margin-bottom: 10px;
@@ -49,37 +63,36 @@ button.button-twitter, button.button-twitter:hover {
     border: 0;
     color: #fff;
 }
-#commenter {
-    padding-top: 5px;
-    padding-left: 5px;
-    text-align: left;
-    font-weight: bold;
-    
+
+#myfooter{
+  height: 60px;
+  background-color: #e6e6e6;
+  text-align: center;
+  padding-top: 1em;
 }
+
 .add-comment-div {
     margin-bottom: 100px;
 }
-.comments-div {
-    display: none;
-}
-#commenter a {
-    color: #446CB3;
-}
-#comments-box {
-    display: none;
-}
-#comment-section {
-    margin-top: 5px;
-    text-align: left;
-    padding-left: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
+
+
+#commenter-para a {
+    color: #3b5998;
 }
 #comments-list {
+    margin-top: 7px;
+    text-align: left;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
     min-height: 100px;
     background-color: #efefef;
     border-radius: 5px;
     margin-bottom: 20px;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 1px 5px 0px rgba(50, 50, 50, 0.75);
 }
 button.button-facebook, button.button-facebook:hover {
     width: 200px;
@@ -125,16 +138,8 @@ button.btn-google, button.btn-google:hover {
     color: #fff;
 }
 
-#video-para {
-    margin-left: -600px;
-    margin-bottom: 5px;
-}
-#video-details {
-    margin-left: -505px;
-}
-#li-adjust {
-    /*margin-left: 10px;*/
-}
+
+
 #videoOverlay {
 display: none;
 position: fixed;
@@ -195,20 +200,22 @@ font-weight: 300;
 font-style: normal;
 }
 
-/*#overlay {
-background-image: url(../images/overlay.png);
-width: 100%;
-height: 100%;
-margin: 0px;
-position: fixed;
-z-index: 20;
-}*/
+
+.homepage-videos {
+    display: inline-block;
+    margin-bottom: 50px;
+}
 
 body {
     background-color: #f0f0f0;
 }
 .navbar{
      background-color: #e6e6e6; 
+}
+
+.sidebar-div {
+    position: fixed;
+    left: 900px;
 }
 
 .navbar-btn{
@@ -222,6 +229,17 @@ a{
 p{
     color: #2E2E2E;
 }
+#para-caption {
+    font-size: 20px;
+    font-weight: bold;
+}
+#para-caption-main {
+    font-size: 15px;
+    font-weight: bold;
+}
+#videobox-container {
+    margin-top: 80px;
+}
 .nav-title{
     font-weight: bolder;
     font-family: cursive;
@@ -230,8 +248,40 @@ p{
     padding: 20px 10px 10px 25px;
 }
 
-.videoheader{
-    text-align: center;
+#video-share {
+    margin-bottom: 40px;
+}
+#video-div {
+    margin-top: 20px;
+}
+.para-inline {
+    display: inline-block;
+    margin-right: 15px;
+}
+#comments-div p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#video-details-main {
+    padding: 10px;
+    text-align: left;
+    min-height: 100px;
+    margin-bottom: 20px;
+}
+
+#video-details {
+    padding: 10px;
+    text-align: left;
+    min-height: 100px;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    margin-bottom: 20px;
 }
 .row
 {
@@ -263,4 +313,40 @@ position:relative;
     
 -moz-transform:rotate(4deg) scale(1.2);
 -webkit-transform:rotate(4deg) scale(1.2);
+}
+
+/*.jumbotron {
+    background: url("/mestpic.jpg") no-repeat center center; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.jumbo {
+    margin-top: 0;
+}
+.video-cta {
+    height: 350px;
+}*/
+
+.jumbotron {
+    background: url("/mestpic.jpg") no-repeat center center; 
+    color: #ffffff;
+}
+
+.jumbo-text {
+overflow: auto;
+background: transparent;
+z-index: 900;
+background-color: rgba(0,0,0,0.5);
+width: 600px;
+padding-bottom: 20px;
+}
+.jumbo-text p {
+color: #ffffff;
+}
+
+.jumbo-text .description {
+    font-size: 14px;
 }

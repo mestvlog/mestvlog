@@ -1,3 +1,46 @@
 <template name="home">
-    {{> videobox}}
+    <center>
+        <div class="bg"></div>
+        <div class="jumbotron jumbo">
+            <div class="jumbo-text">
+                 <h2>Welcome to MestVlog</h2>
+                 <p id="tagline">Share memories that will last a lifetime.</p>
+                 <p class="description">Capture your MEST experiences and share it with the rest of the community.</p>
+                <div class="video-cta">
+                    <a class="btn btn-primary btn-lg" href="{{pathFor "videos"}}" role="button">
+                    See all Videos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </center>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <center><h3>Top 3 Videos</h3></center>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-sm-offset-1">
+                    {{#each videos}}
+                    <div class="homepage-videos">
+                        <div id="video-thumbnail">
+                        <a href="#" data-action="showVideo" id="{{_id}}">
+                        <video src="{{videoUrl}}" width="300"></video>
+                        </a>
+                        </div> 
+                        <div id="top-videos">
+                            <p id="para-caption-main">{{caption}}</p>
+                            <p class="para-inline">by {{username _id}}</p>
+                            <p class="para-inline"><i class="glyphicon glyphicon-comment"></i>
+                                {{commentsCount _id}}
+                            </p>
+                                <!-- <li><i class="glyphicon glyphicon-share"></i> 14 Shares</li> -->
+                      </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>      
+        </div>
+         {{> videoOverlayTemplate}}
 </template>

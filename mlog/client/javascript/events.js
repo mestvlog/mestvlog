@@ -5,6 +5,21 @@ Template.videobox.events({
     $("#videoOverlay").show();
   }
 })
+Template.home.events({
+  "click [data-action='showVideo']": function(e,t) {
+    var videoId = e.currentTarget.id;
+    Session.set("videoId", videoId);
+    $("#videoOverlay").show();
+  }
+})
+
+Template.videobox.rendered = function(){
+  if($("#para-caption-main").text() == "") {
+    $(".no-videos").html("<h3>Sorry! there are no videos for this tag</h3>");
+  }
+};
+
+
 
 Template.sidebar.events({
   "mouseenter .tags": function(e,t) {
@@ -46,11 +61,16 @@ Template.videoOverlayTemplate.events({
         $("#videoPlayer").attr('src','');
     },
   "click [data-action='comment-btn']": function(e,t) {
-    var videoId = e.currentTarget.id;
+     var videoId = e.currentTarget.id;
     Session.set("target", videoId);
-    $("#comments-box").show();
+    if(!Meteor.user()) {
+      swal("sorry! you need to signin to comment")
+    }
+    else {
+      $("#comments-box").show();
+  }
   },
-  "click [ data-action='show-comments']": function(e,t) {
+ /* "click [ data-action='show-comments']": function(e,t) {
     var videoId = e.currentTarget.id;
     Session.set("target", videoId);
     $("#comments-box").show();
@@ -58,7 +78,11 @@ Template.videoOverlayTemplate.events({
     $("#show-comments").toggleClass("show");
     var txt =  $("#show-comments").hasClass('show') ? 'Hide Comments' : 'Show Comments'
     $("#show-comments").html("<p>" + txt + "</p>");  
-}
+  },*/
+  "mouseenter [data-action='add-comment']": function(e,t) {
+    var videoId = e.currentTarget.id;
+    Session.set("target", videoId);
+  }
 })
 
 
@@ -122,7 +146,11 @@ Template.loginButtonsTemplate.events({
 
 Accounts.onLogin(function() {
   $("#overlay").hide();
-  Router.go("userProfile");
+  Router.go("videos");
+});
+
+Accounts.onLogout(function() {
+  Router.go("videos");
 });
 
 

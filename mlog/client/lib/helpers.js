@@ -4,6 +4,10 @@ Template.registerHelper("isUploading", function() {
     }
 })
 
+Template.registerHelper("tagList", function(id) {
+    var videoTags = Videos.findOne(id).tags;
+    return videoTags.slice(0, videoTags.length - 1).join(', ').concat(' and ' + videoTags[videoTags.length - 1]);
+})
 Template.videoOverlayTemplate.helpers({
     userVideo: function() {
     var video = Videos.findOne(Session.get("videoId"));
@@ -23,15 +27,15 @@ Template.videoOverlayTemplate.helpers({
 
 Template.registerHelper("mestOptions", function() {
     return [
-        {label: 'Mest Fun', value: 'mestfun'},
-        {label: "Mest New Intros", value: 'mestintros'},
-        {label: "Mest Travels", value: 'mesttravels'},
-        {label: "Mest Love", value: 'mestlove'},
-        {label: "Mest Random", value: 'mestrandom'},
-        {label: "Mest Pitches", value: 'mestpitches'},
-        {label: "Mest Winners", value: 'mestwinners'},
-        {label: "Mest Goodbyes", value: 'mestgoodbyes'},
-        {label: "Mest Events", value: 'mestevents'}
+        {label: 'Mest Fun', value: 'Mest Fun'},
+        {label: "Mest New Intros", value: 'Mest Intros'},
+        {label: "Mest Travels", value: 'Mest Travels'},
+        {label: "Mest Love", value: 'Mest Love'},
+        {label: "Mest Random", value: 'Mest Random'},
+        {label: "Mest Pitches", value: 'Mest Pitches'},
+        {label: "Mest Winners", value: 'Mest Winners'},
+        {label: "Mest Goodbyes", value: 'Mest Goodbyes'},
+        {label: "Mest Events", value: 'Mest Events'}
       
     ]
 })

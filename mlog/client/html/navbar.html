@@ -9,13 +9,22 @@
       <ul class="nav navbar-nav navbar-right">
         {{#if currentUser}}
           <!-- <li><a href="{{pathFor "userProfile"}}">{{username}}</a></li> -->
-          <button class="btn btn-default navbar-btn"><li><a href="#" data-action="signout-btn">Signout</a>
+          <li>
+          <button class="btn btn-default navbar-btn" data-action="signout-btn">
+          Signout
+          </button>
           </li>
-          </button>
-          <button class="btn btn-default navbar-btn"><li><a href="#" data-action="new-vid">Upload</a></li></button>
+          <li>
+            <button class="btn btn-default navbar-btn" data-action="new-vid">
+              Upload
+            </button>
+          </li>
          {{else}}
-          <button class="btn btn-default navbar-btn"><li><a href="#" data-action="signin-btn">Signin</a></li>
-          </button>
+          <li>
+            <button class="btn btn-default navbar-btn" data-action="signin-btn">
+              Signin
+            </button>
+          </li>
           {{/if}}
       </ul>
      </div>

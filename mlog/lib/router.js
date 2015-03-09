@@ -5,7 +5,12 @@ Router.configure({
 Router.route("/", function() {
     this.render("home");
 },
-{   name: "home"
+{   name: "home",
+    data: function() {
+      return {
+        videos: Videos.find({}, {sort: {createdAt: -1}, limit: 3})
+      }
+    }
 })
 
 Router.route("user/profile", function() {
@@ -20,7 +25,8 @@ Router.route("/videos", function() {
 {   name: "videos",
     data: function() {
       return {
-        videos: Videos.find({}, {sort: {createdAt: -1}}),
+        // videos: Videos.find({}, {sort: {createdAt: -1}}),
+        videos: myPagination.find({}, {itemsPerPage:6}),
         header: "ALL VIDEOS"
     }
     } 
@@ -32,7 +38,7 @@ Router.route("/mestfun", function() {
 {   name: "mestFun",
     data: function() {
       return {
-        videos: Videos.find({tags: "mestfun"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Fun"}, {sort: {createdAt: -1}}),
         header: "MEST FUN VIDEOS"
     }
     } 
@@ -44,7 +50,7 @@ Router.route("/mestpitches", function() {
 {   name: "mestPitches",
     data: function() {
       return {
-        videos: Videos.find({tags: "mestpitches"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Pitches"}, {sort: {createdAt: -1}}),
         header: "MEST PITCH VIDEOS"
     }
     } 
@@ -56,7 +62,7 @@ Router.route("/mestevents", function() {
 {   name: "mestEvents",
     data: function() {
       return {
-        videos: Videos.find({tags: "mestevents"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Events"}, {sort: {createdAt: -1}}),
         header: "MEST EVENT VIDEOS"
     }
     } 
@@ -68,7 +74,7 @@ Router.route("/mestrandom", function() {
 {   name: "mestRandom",
     data: function() {
       return {
-        videos: Videos.find({tags: "mestrandom"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Random"}, {sort: {createdAt: -1}}),
         header: "MEST RANDOM VIDEOS"
     }
     } 
@@ -80,7 +86,7 @@ Router.route("/mesttravels", function() {
 {   name: "mestTravels",
     data: function() {
       return {
-        videos: Videos.find({tags: "mesttravels"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Travels"}, {sort: {createdAt: -1}}),
         header: "MEST TRAVEL VIDEOS"
     }
     } 
@@ -92,7 +98,7 @@ Router.route("/mestwinners", function() {
 {   name: "mestWinners",
     data: function() {
       return {
-        videos: Videos.find({tags: "mestwinners"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Winners"}, {sort: {createdAt: -1}}),
         header: "MEST WINNERS VIDEOS"
     }
     } 
@@ -104,7 +110,7 @@ Router.route("/mestgoodbyes", function() {
 {   name: "mestGoodbyes",
     data: function() {
       return {
-        videos: Videos.find({tags: "mestgoodbyes"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Goodbyes"}, {sort: {createdAt: -1}}),
         header: "MEST GOODBYE VIDEOS"
     }
     } 
@@ -117,7 +123,7 @@ Router.route("/mestintros", function() {
 {   name: "mestIntros",
     data: function() {
       return {
-        videos: Videos.find({tags: "mestintros"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Intros"}, {sort: {createdAt: -1}}),
         header: "MEST NEW INTRODUCTION VIDEOS"
     }
     } 
@@ -130,7 +136,7 @@ Router.route("/mestlove", function() {
 {   name: "mestLove",
     data: function() {
       return {
-        videos: Videos.find({tags: "mestlove"}, {sort: {createdAt: -1}}),
+        videos: Videos.find({tags: "Mest Love"}, {sort: {createdAt: -1}}),
         header: "MEST LOVE VIDEOS"
     }
     } 

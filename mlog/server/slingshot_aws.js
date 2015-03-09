@@ -20,9 +20,7 @@ Slingshot.createDirective("mestvids", Slingshot.S3Storage, {
     //Store file into a directory by the user's username.
     var user = Meteor.users.findOne(this.userId);
     return user.username + "/" + file.name;
-  },
-
-  bucketUrl: Meteor.settings.public.awsBucketUrl
+  }
 
 
   
