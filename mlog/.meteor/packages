@@ -34,7 +34,6 @@ cfs:standard-packages
 edgee:slingshot
 underscore
 tracker
-peerlibrary:aws-sdk
 reactive-var
 natestrauser:select2
 aldeed:autoform-select2
@@ -43,5 +42,6 @@ comerc:autoform-selectize
 chhib:selectize-bootstrap-3
 joshowens:shareit
 hitchcott:paginator
-
 tsega:skrollr
+eluck:aws-sdk
+yogiben:admin

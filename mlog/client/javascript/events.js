@@ -12,14 +12,18 @@ Template.home.events({
     $("#videoOverlay").show();
   }
 })
+/*
+Template.videobox.rendered = function() {
+  var $check = $("#check");
+  if($check.text() == "") {
+  $("#no-videos").show();
+}
+else {
+  $check.text("");
+  $("#show-vids").show();
+}
 
-Template.videobox.rendered = function(){
-  if($("#para-caption-main").text() == "") {
-    $(".no-videos").html("<h3>Sorry! there are no videos for this tag</h3>");
-  }
-};
-
-
+}*/
 
 Template.sidebar.events({
   "mouseenter .tags": function(e,t) {

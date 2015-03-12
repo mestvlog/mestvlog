@@ -1,8 +1,7 @@
-
 Slingshot.createDirective("mestvids", Slingshot.S3Storage, {
- bucket: Meteor.settings.awsBucket,
- AWSAccessKeyId: Meteor.settings.awsAccessKeyId,
- AWSSecretAccessKey: Meteor.settings.awsSecretKey,
+ bucket: Meteor.settings.AWS.awsBucket,
+ AWSAccessKeyId: Meteor.settings.AWS.awsAccessKeyId,
+ AWSSecretAccessKey: Meteor.settings.AWS.awsSecretKey,
  
   acl: "public-read",
 

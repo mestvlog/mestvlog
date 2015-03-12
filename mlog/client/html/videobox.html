@@ -4,30 +4,33 @@
     <div class="col-md-9">
     <p class="videoheader"><center><strong>{{header}}</strong></center></p>
       <div class="row">
-      <div class="col-sm-6 col-sm-offset-3 no-videos">
-      </div>
-
-       {{#each videos}}
-        <div class="col-md-6">
-          <div id="video-thumbnail">
-             <a href="#" data-action="showVideo" id="{{_id}}">
-                <video src="{{videoUrl}}" width="400"></video>
-             </a>
-          </div>
-            <div id="video-details-main">
-                <p id="para-caption-main">{{caption}}</p>
-                <p>by {{username _id}}</p>
-                <p class="para-inline"><i class="fa fa-clock-o"></i> {{timeStamp _id}}</p>
-                <p class="para-inline"><i class="glyphicon glyphicon-comment"></i>
-                  {{commentsCount _id}}
-                </p>
-                <!-- <li><i class="glyphicon glyphicon-share"></i> 14 Shares</li> -->
-                <p class="para-inline"><i class="fa fa-tags"></i>
-                <strong>Tagged in &nbsp;</strong>{{tagList _id}}
-                </p>
-            </div>
-        </div>
+       {{#if isVideos videos}}
+            {{#each videos}}
+              <div class="col-md-6" id="show-vids">
+                  <div id="video-thumbnail">
+                      <a href="#" data-action="showVideo" id="{{_id}}">
+                      <video src="{{videoUrl}}" width="400"></video>
+                      </a>
+                  </div>
+                  <div id="video-details-main">
+                      <p id="para-caption-main">{{caption}}</p>
+                      <p>by {{username _id}}</p>
+                      <p class="para-inline"><i class="fa fa-clock-o"></i> {{timeStamp _id}}</p>
+                      <p class="para-inline"><i class="glyphicon glyphicon-comment"></i>
+                        {{commentsCount _id}}
+                      </p>
+                        <!-- <li><i class="glyphicon glyphicon-share"></i> 14 Shares</li> -->
+                      <p class="para-inline"><i class="fa fa-tags"></i>
+                        <strong>Tagged in &nbsp;</strong>{{tagList _id}}
+                      </p>
+                  </div>
+           </div>
         {{/each}}
+      {{else}}
+          <div class="col-sm-6 col-sm-offset-3 no-videos">
+            <h3>Sorry! there are no videos for this tag</h3>
+          </div>
+      {{/if}}
   </div>
     <div class="row">
           <div class="col-sm-8 col-sm-offset-3 pagination-div">

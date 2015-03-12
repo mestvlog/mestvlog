@@ -1,3 +1,14 @@
+Meteor.startup(function() {
+
+  METEOR_SETTINGS = {"awsBucket": "mestvids",
+  "awsAccessKeyId": "AKIAJ3YZJ3YPDW2Y7D4Q",
+  "awsSecretKey": "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",
+  "public": {
+    "awsBucketUrl": "https://mestvids.s3.amazonaws.com",
+    "environment": "staging"
+  }}
+});
+
  createServiceConfiguration = function(service, clientId, secret) {
   var config;
   ServiceConfiguration.configurations.remove({

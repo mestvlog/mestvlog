@@ -4,6 +4,15 @@ Template.registerHelper("isUploading", function() {
     }
 })
 
+Template.registerHelper("isVideos", function(object) {
+    if(object.fetch().length !== 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+})
+
 Template.registerHelper("tagList", function(id) {
     var videoTags = Videos.findOne(id).tags;
     return videoTags.slice(0, videoTags.length - 1).join(', ').concat(' and ' + videoTags[videoTags.length - 1]);

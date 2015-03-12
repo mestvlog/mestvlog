@@ -1,10 +1,17 @@
 
 #wrapper {
-  min-height: 100%;
+  min-height: 78%;
   /* Negative indent footer by it's height */
   /*margin: 0 auto -60px;*/
 }
+/*
+#show-vids, #no-videos {
+    display: none;
+}*/
 
+.navbar {
+    position: static;
+}
 #video-thumbnail {
     margin-top: 0;
     margin-bottom: 0;
@@ -206,6 +213,10 @@ font-style: normal;
     margin-bottom: 50px;
 }
 
+/*#no-videos, #show-vids {
+    display: none;
+}*/
+
 body {
     background-color: #f0f0f0;
 }
@@ -213,9 +224,16 @@ body {
      background-color: #e6e6e6; 
 }
 
-.sidebar-div {
-    position: fixed;
-    left: 900px;
+#sidebar {
+   position: fixed;
+    /*left: 900px;*/
+    margin-left: 600px;
+}
+
+#sidebar-wrapper { 
+  width: 600px; 
+  margin: 15px auto; 
+  position: relative; 
 }
 
 .navbar-btn{
@@ -238,7 +256,7 @@ p{
     font-weight: bold;
 }
 #videobox-container {
-    margin-top: 80px;
+    margin-top: 20px;
 }
 .nav-title{
     font-weight: bolder;
@@ -314,21 +332,6 @@ position:relative;
 -moz-transform:rotate(4deg) scale(1.2);
 -webkit-transform:rotate(4deg) scale(1.2);
 }
-
-/*.jumbotron {
-    background: url("/mestpic.jpg") no-repeat center center; 
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -o-background-size: 100% 100%;
-    background-size: 100% 100%;
-}
-
-.jumbo {
-    margin-top: 0;
-}
-.video-cta {
-    height: 350px;
-}*/
 
 .jumbotron {
     background: url("/mestpic.jpg") no-repeat center center; 
