@@ -87,3 +87,10 @@ Comments.attachSchema(new SimpleSchema({
     }
   }
 }))
+
+
+  AdminConfig = {
+  collections: {
+    Videos: {}
+  }
+};
